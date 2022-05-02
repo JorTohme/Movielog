@@ -2,4 +2,5 @@
 University Lab3 final project
 
 ## Mockup
-![Mesa de trabajo 1](https://user-images.githubusercontent.com/81455931/166259948-20ae16ef-04f9-47ac-b2d0-ee474806f70a.png)
+
+![Mockup](https://user-images.githubusercontent.com/81455931/166292420-1b2caa8c-1f58-4a36-b235-5346bb6e4e4d.png)
