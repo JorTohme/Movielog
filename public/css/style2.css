@@ -1,0 +1,143 @@
+@font-face { 
+  font-family: 'Geomanist-Medium';
+  src: url('../assets/fonts/Geomanist-Medium.ttf');
+}
+
+@font-face { 
+  font-family: 'Coves-Light';
+  src: url('../assets/fonts/Coves-Light.otf');
+}
+
+#maincontent {
+  padding-top: 70px;
+}
+
+h2 {
+  padding-top: 40px;
+  width: 200px;
+  margin: auto;
+  color: white;
+  font-family: 'Visby-Heavy-Italic';
+  text-decoration: underline;
+  text-decoration-color: #b5561c;
+  transform: scale(1.4);
+}
+
+.movie .movieposter {
+  /* Centrar la imagen */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Tamaño del poster */
+  width: 232px;
+  height: 365px;
+  border-radius: 15px;
+}
+
+.movie p {
+  text-align: center;
+  font-family: 'Geomanist-Medium';
+}
+
+.movie a {
+  color: #595757;
+  text-decoration: none;
+}
+
+.movie a:visited {
+  color: #595757;
+}
+
+.movie a:hover * {
+  font-size: large;
+  transform: scale(1.02);
+}
+
+.movie {
+  height: 470px;
+}
+
+footer {
+  position: absolute;
+  font-family: 'Coves-Light';
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background-color: rgb(41, 41, 41);
+  color: rgb(161, 161, 161);
+
+  width: 99%;
+  display: flex;
+
+  padding-left: 1em;
+}
+
+footer #name {
+  font-size: small;
+  letter-spacing: 1px;
+  margin-right: 2px;
+}
+
+footer #name span {
+  font-size: 1.1em;
+  letter-spacing: 2px;
+}
+
+footer .info a {
+  text-decoration: underline;
+  letter-spacing: 1px
+}
+
+footer .info a:link {
+  color: rgb(188, 188, 188);
+}
+
+footer .info a:visited {
+  color: white;
+}
+
+.shopping-cart {
+  width: 100px;
+  height: 30px;
+  background-color: #5496c6;
+  color: black;
+  position: fixed;
+  right: 10em;
+  top: 5em;
+
+  text-align: center;
+  
+  border-radius: 4px;
+
+  display: flex;
+}
+
+.shopping-cart p {
+  font-family: 'Geomanist-Medium';
+
+  margin: 0;
+  padding-top: 3px;
+  margin-left: 12px;
+  font-weight: normal;
+  font-size: large;
+  z-index:auto;
+}
+
+.shopping-cart img {
+  height: 27px;
+  padding-left: 9px;
+  padding-top: 2px;
+}
+
+@media (max-width: 800px) {
+  .movie p {
+    text-align: center;
+    font-family: 'Geomanist-Medium';
+    color: white;
+  }
+  .shopping-cart {
+    top: 10em;
+    right: 2em;
+  }
+}
