@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./assets/logo.svg" rel="icon">
-  <link href="./css/style.css" rel="stylesheet">
-  <link href="./css/style2.css" rel="stylesheet">
-  <link href="./css/bootstrap-grid.min.css" rel="stylesheet">
+  <link href="./public/assets/logo.svg" rel="icon">
+  
+  <link href="./public/css/style.css" rel="stylesheet">
+  <link href="./public/css/style2.css" rel="stylesheet">
+  <link href="./public/css/bootstrap-grid.min.css" rel="stylesheet">
   <title>Movielog</title>
 </head>
 
@@ -16,13 +17,13 @@
   <header>
     <nav>
       <div id="logo">
-        <img src="./assets/logo.svg" alt="" id="logo">
+        <img src="./public/assets/logo.svg" alt="" id="logo">
         <h1> Movielog </h1>
       </div>
       <div id="menu">
-        <a href="./sign-in.html">Iniciar Sesión</a>
+        <a href="./sign-in.php">Iniciar Sesión</a>
         <a>Crear Cuenta</a>
-        <a href="./index.html">Catálogo</a>
+        <a href="./public/index.php">Catálogo</a>
         <a>Nosotros</a>
         <input type="text" placeholder="Search">
       </div>
@@ -35,21 +36,21 @@
       <div class="row justify-content-around">
         <div class="col-lg-3 movie">
           <a href="">
-            <img class="movieposter" src="./assets/posters/spidermanposter.jpg" alt="">
+            <img class="movieposter" src="./public/assets/posters/spidermanposter.jpg" alt="">
             <p class="movie-title">Spider-Man No Way Home</p>
             <p>Catálogo</p>
           </a>
         </div>
         <div class="col-lg-3 movie">
           <a href="">
-            <img class="movieposter" src="./assets/posters/batmanposter.jpg" alt="">
+            <img class="movieposter" src="./public/assets/posters/batmanposter.jpg" alt="">
             <p class="movie-title">The Batman (2022)</p>
             <p>Catálogo</p>
           </a>
         </div>
         <div class="col-lg-3 movie">
           <a href="">
-            <img class="movieposter" src="./assets/posters/fantasticbeastaposter.jpg" alt="">
+            <img class="movieposter" src="./public/assets/posters/fantasticbeastaposter.jpg" alt="">
             <p class="movie-title">Fantastic Beasts</p>
             <p>Catálogo</p>
           </a>
@@ -58,7 +59,7 @@
       </div>
     </div>
   </div>
-  <script src="./js/bootstrap.min.js"></script>
+  <script src="./public/js/bootstrap.min.js"></script>
 </body>
 
 <footer>
@@ -69,7 +70,7 @@
 </footer>
 
 <div class="shopping-cart">
-  <img src="./assets/shoppingcart.svg" alt="">
+  <img src="./public/assets/shoppingcart.svg" alt="">
   <p>(0)</p>
 </div>
 

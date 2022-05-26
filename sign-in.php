@@ -1,17 +1,15 @@
+<?php 
+  include_once './private/DataBaseConnection.php';
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Signin</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="./assets/logo.svg" rel="icon">
-
+  <link href="./public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./public/assets/logo.svg" rel="icon">
+  <link href="./public/css/signin.css" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -27,16 +25,14 @@
       }
     }
   </style>
-
-  <link href="./css/signin.css" rel="stylesheet">
+  <title>Signin</title>
 </head>
 
 <body class="text-center">
   <main class="form-signin">
     <form>
-      <a href="./index.html"><img class="mb-4" src="./assets/logo.svg" alt="" width="122,4" height="96,9"></a>
+      <a href="./index.php"><img class="mb-4" src="./public/assets/logo.svg" alt="" width="122,4" height="96,9"></a>
       <h1 class="h3 mb-3">Inicio de sesión</h1>
-
       <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Direccion de e-mail</label>
@@ -45,7 +41,6 @@
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Contraseña</label>
       </div>
-
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Recuerdame
@@ -54,9 +49,11 @@
       <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
     </form>
   </main>
-
-
-
+  
+  <?php
+    $db = new DB();
+    $db->connect();
+  ?>
 </body>
 
 </html>
