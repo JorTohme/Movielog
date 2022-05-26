@@ -23,7 +23,7 @@
       <div id="menu">
         <a href="./sign-in.php">Iniciar Sesión</a>
         <a>Crear Cuenta</a>
-        <a href="./public/index.php">Catálogo</a>
+        <a href="./index.php">Catálogo</a>
         <a>Nosotros</a>
         <input type="text" placeholder="Search">
       </div>
