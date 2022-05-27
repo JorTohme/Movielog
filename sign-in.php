@@ -1,6 +1,3 @@
-<?php 
-  include_once './private/DataBaseConnection.php';
-?>
 <!doctype html>
 <html lang="en">
 
@@ -30,15 +27,15 @@
 
 <body class="text-center">
   <main class="form-signin">
-    <form>
+    <form action="" method="POST">
       <a href="./index.php"><img class="mb-4" src="./public/assets/logo.svg" alt="" width="122,4" height="96,9"></a>
       <h1 class="h3 mb-3">Inicio de sesión</h1>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Direccion de e-mail</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <label for="floatingPassword">Contraseña</label>
       </div>
       <div class="checkbox mb-3">
@@ -49,11 +46,6 @@
       <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
     </form>
   </main>
-  
-  <?php
-    $db = new DB();
-    $db->connect();
-  ?>
 </body>
 
 </html>
