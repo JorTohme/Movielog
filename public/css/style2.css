@@ -130,6 +130,10 @@ footer .info a:visited {
   padding-top: 2px;
 }
 
+.shopping-cart a {
+  display: flex;
+}
+
 @media (max-width: 800px) {
   .movie p {
     text-align: center;
