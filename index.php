@@ -17,29 +17,9 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div id="logo">
-                <img src="./public/assets/logo.svg" alt="" id="logo">
-                <h1> Movielog </h1>
-            </div>
-            <div id="menu">
-                <?php 
-                if (isset($_SESSION['user'])) {
-                    $name = $_SESSION['user'];
-                    echo "<a> Hola $name </a>";
-                    echo "<a href='./private/sign-out.php'> Salir <a>";
-                } else {
-                    echo "<a href='./sign-in.php?sign-into-account'>Iniciar Sesión</a>";
-                    echo "<a href='./sign-in.php?register'>Crear Cuenta</a>";
-                }
-                ?>
-                <a href="./index.php">Catálogo</a>
-                <a>Nosotros</a>
-                <input type="text" placeholder="Search">
-            </div>
-        </nav>
-    </header>
+    <?php
+    include_once('./public/header.php')
+    ?>
 
     <h2> Últimas películas </h2>
     <div id="maincontent">
@@ -79,9 +59,11 @@
     </div>
 </footer>
 
-<div class="shopping-cart">
-    <img src="./public/assets/shoppingcart.svg" alt="">
-    <p>(0)</p>
-</div>
+<a href="./shoppingcart.php">
+    <div class="shopping-cart">
+        <img src="./public/assets/shoppingcart.svg" alt="">
+        <p>(0)</p>
+    </div>
+</a>
 
 </html>
