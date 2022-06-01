@@ -6,7 +6,7 @@
         </div>
         <div id="menu">
             <?php 
-                if (isset($_SESSION['admin'])) {
+                if (isset($_SESSION['user']) && $_SESSION['user'] === 'ADMIN') {
                     echo "<a href='./admin.php'>Espacio del administrador</a>";
                     echo "<a href='./private/sign-out.php'> Salir <a>";
                 } else if (isset($_SESSION['user'])) {

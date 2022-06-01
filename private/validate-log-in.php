@@ -11,15 +11,7 @@ $response = mysqli_query($db, $request);
 if (mysqli_num_rows($response)) {
     mysqli_close($db);
     session_start();
-
-
-    if (mysqli_fetch_assoc($response)['admin'] == 1)
-    {
-        $_SESSION['admin'] = true;
-    } else {
-        $_SESSION['user'] = mysqli_fetch_assoc($response)['username'];
-    }
-
+    $_SESSION['user'] = mysqli_fetch_assoc($response)['username'];
     header("location:../index.php");
 } else {
     mysqli_close($db);

@@ -21,8 +21,6 @@
                 <p>Página no encontrada</p>
             </div>
         </body>
-        </html>
-";
-            
+        </html>";         
     }
 ?>
