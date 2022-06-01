@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Geomanist-Regular';
+    src: url('../assets/fonts/Geomanist-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Coves-Light';
+    src: url('../assets/fonts/Coves-Light.otf');
+}
+
+main {
+    margin-top: 70px;
+}
+
+.item {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.item-container {
+    height: 300px;
+    width: 220px;
+    background-color: rgb(220, 225, 230);
+    border-radius: 5px;
+    box-shadow: -3px 0 10px rgb(0, 0, 0);
+}
+
+.item-container:hover {
+    box-shadow: -3px 0 20px rgb(0, 0, 0);
+}
+
+.item img {
+    object-fit: cover;
+    width: 200px;
+    height: 180px;
+    margin-top: 3px;
+    border: 2px dashed rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.item .name {
+    font-family: Geomanist-Regular, sans-serif;
+    margin: 7px 0 6px 0;
+}
+
+.item .price {
+    font-family: Geomanist-Regular, sans-serif;
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 1.9rem;
+}
+
+.item button {
+    width: 140px;
+    height: 30px;
+    border: none;
+    background-color: rgb(66, 124, 209);
+    border-radius: 3px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-family: Geomanist-Regular, sans-serif;
+    letter-spacing: 0.9px;
+}
+
+.item button:hover {
+    background-color: rgb(94, 142, 213);
+}
+
+footer {
+    position: absolute;
+    font-family: 'Coves-Light';
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background-color: rgb(41, 41, 41);
+    color: rgb(161, 161, 161);
+
+    width: 99%;
+    display: flex;
+
+    padding-left: 1em;
+}
+
+footer #name {
+    font-size: small;
+    letter-spacing: 1px;
+    margin-right: 2px;
+}
+
+footer #name span {
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+footer .info a {
+    text-decoration: underline;
+    letter-spacing: 1px
+}
+
+footer .info a:link {
+    color: rgb(188, 188, 188);
+}
+
+footer .info a:visited {
+    color: white;
+}
