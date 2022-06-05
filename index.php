@@ -10,7 +10,7 @@
     <link href="./public/css/style2.css" rel="stylesheet">
     <link href="./public/css/bootstrap-grid.min.css" rel="stylesheet">
     <title>Movielog</title>
-    <?php include('./private/movies.php'); session_start(); ?>
+    <?php include('./private/db.php') ; session_start(); ?>
 </head>
 
 <body>
@@ -20,7 +20,8 @@
         <div class="container movies-container">
             <div class="row justify-content-around">
             <?php
-                while ($row = mysqli_fetch_row($result)) {
+            $movies = getMovies($db);
+                while ($row = mysqli_fetch_row($movies)) {
                    echo "
                         <div class='col-lg-3 movie'>
                             <a href='./merch.php?movie=$row[0]'>
@@ -42,12 +43,5 @@
         <p> <a href="https://github.com/JorTohme">Github</a> </p>
     </div>
 </footer>
-
-<a href="./shoppingcart.php">
-    <div class="shopping-cart">
-        <img src="./public/assets/shoppingcart.svg" alt="">
-        <p>(0)</p>
-    </div>
-</a>
 
 </html>
