@@ -1,14 +1,14 @@
-@font-face { 
+@font-face {
   font-family: 'Geomanist-Regular';
   src: url('../assets/fonts/Geomanist-Regular.ttf');
 }
 
-@font-face { 
+@font-face {
   font-family: 'Geomanist-Black';
   src: url('../assets/fonts/Geomanist-Black.ttf');
 }
 
-@font-face { 
+@font-face {
   font-family: 'Visby-Heavy-Italic';
   src: url('../assets/fonts/VisbyHeavy-Italic.otf');
 }
@@ -19,7 +19,7 @@ body {
   background-attachment: scroll;
 
   background-color: rgb(207, 207, 207);
-  
+
   position: relative;
   min-height: 100vh;
   padding-bottom: 10em;
@@ -38,21 +38,27 @@ nav {
 nav * {
   display: inline-flex;
   margin: auto;
-} 
+}
 
-h1{
+h1 {
   font-family: 'Geomanist-Black', sans-serif;
   color: white;
   font-size: 25pt;
   margin-left: 1.4rem;
 
   /* Impide la selección del texto */
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
           supported by Chrome, Edge, Opera and Firefox */
 }
 
@@ -124,21 +130,26 @@ h1{
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+
+@media (max-width: 800px) {
+  body {
+    background-image: url("../assets/background.svg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-color: rgb(72, 120, 148);
   }
 
-
-  @media (max-width: 800px) {
-    body {
-      background-image: url("../assets/background.svg");
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-    }
-    nav {
-      display: block;
-    }
-
-    #menu input {
-      width: 80px;
-    }
+  nav {
+    display: block;
   }
+
+  #menu input {
+    width: 80px;
+    position: absolute;
+    top: 110px;
+    right: 130px;
+  }
+}
