@@ -27,7 +27,7 @@
 
 <body class="text-center">
     <main class="form-signin">
-        <form action="./private/validate-log-in.php" method="POST">
+        <form action="./private/db.php" method="POST">
             <a href="./index.php"><img class="mb-4" src="./public/assets/logo.svg" alt="" width="122,4"
                     height="96,9"></a>
             <h1 class="h3 mb-3">Inicio de sesión</h1>

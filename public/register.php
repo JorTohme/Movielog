@@ -35,9 +35,9 @@
     <main class="form-signin">
         <?php
             if (isset($_GET['success'])) {
-                echo "<form action='./private/createuser.php' method='POST' id='form' style='display: none;'>";   
+                echo "<form action='./private/db.php' method='POST' id='form' style='display: none;'>";   
             } else {
-                echo "<form action='./private/createuser.php' method='POST' id='form' style='display: inherit;'>";      
+                echo "<form action='./private/db.php' method='POST' id='form' style='display: inherit;'>";      
             }
         ?>
         <a href="./index.php"><img class="mb-4" src="./public/assets/logo.svg" alt="" width="122,4" height="96,9"></a>

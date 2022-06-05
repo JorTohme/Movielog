@@ -21,10 +21,10 @@
                     echo "
                     <div class='col-lg-4 item'>
                         <div class='item-container'>
-                            <img class='movieposter' src='./img/$row[4]' height='300px' alt=''>
+                            <img class='movieposter' src='./public/assets/merch/$row[4]' height='300px' alt=''>
                             <p class='price'>$ $row[3]</p>
                             <p class='name'>$row[2]</p>
-                            <button>Añadir al carrito</button>
+                            <button>Ir a comprar</button>
                         </div>
                     </div> ";
              }
