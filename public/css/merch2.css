@@ -8,6 +8,11 @@
     src: url('../assets/fonts/Coves-Light.otf');
 }
 
+@font-face {
+    font-family: 'Geomanist-Medium';
+    src: url('../assets/fonts/Geomanist-Medium.ttf');
+}
+
 main {
     margin-top: 70px;
 }
