@@ -9,6 +9,7 @@
     <link href="./public/css/style.css" rel="stylesheet">
     <link href="./public/css/style2.css" rel="stylesheet">
     <link href="./public/css/bootstrap-grid.min.css" rel="stylesheet">
+    <script src="./public/js/pages.js" defer></script>
     <title>Movielog</title>
     <?php include('./private/db.php') ; session_start(); ?>
 </head>
@@ -19,20 +20,41 @@
     <div id="maincontent">
         <div class="container movies-container">
             <div class="row justify-content-around">
-            <?php
-            $movies = getMovies($db);
-                while ($row = mysqli_fetch_row($movies)) {
-                   echo "
-                        <div class='col-lg-3 movie'>
-                            <a href='./merch.php?movie=$row[0]'>
-                                <img class='movieposter' src='./public/assets/posters/$row[1]' alt=''>
-                                <p class='movie-title'>$row[0]</p>
-                                <p>Catálogo</p>
-                            </a>
-                        </div> "; 
-                }
-            ?>
+                <?php
+                    if (isset($_GET['search'])) {
+                        $movies = searchMovies($db, $_GET['search']);
+                    } else  {
+                        $movies = getMovies($db);
+                    }
+                    $moviesArray = [];
+                    while ($row = mysqli_fetch_row($movies)) {
+                        $moviesArray[] = "
+                            <div class='col-lg-4 movie'>
+                                <a href='./merch.php?movie=$row[0]'>
+                                    <img class='movieposter' src='./public/assets/posters/$row[1]' alt=''>
+                                    <p class='movie-title'>$row[0]</p>
+                                    <p>Catálogo</p>
+                                </a>
+                            </div> "; 
+                    }
+                    if (!isset($_GET['page'])) {
+                        for ($i=0; $i < 6; $i++) {echo $moviesArray[$i];}
+                    } else {
+                        for ($i= 6 * ($_GET['page']-1); $i <  6 * ($_GET['page']); $i++) {
+                            if ($moviesArray[$i] ?? null) {
+                                echo $moviesArray[$i];
+                            }
+                        }
+                    }
+                ?>
             </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="page-button">
+            <button id="backward"><</button>
+                <p class="page-number" id="page"><?php if(isset($_GET['page'])) {echo ($_GET['page']);} else {echo "1";} ?>
+            <button id="forward">></button>
         </div>
     </div>
 </body>
