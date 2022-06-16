@@ -38,7 +38,11 @@
                             </div> "; 
                     }
                     if (!isset($_GET['page'])) {
-                        for ($i=0; $i < 6; $i++) {echo $moviesArray[$i];}
+                        for ($i=0; $i < 6; $i++) {
+                            if ($moviesArray[$i] ?? null) {
+                                echo $moviesArray[$i];
+                            };
+                        }
                     } else {
                         for ($i= 6 * ($_GET['page']-1); $i <  6 * ($_GET['page']); $i++) {
                             if ($moviesArray[$i] ?? null) {
