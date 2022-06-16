@@ -20,7 +20,11 @@
                 ?>
             <a href="./index.php">Catálogo</a>
             <a>Nosotros</a>
-            <input type="text" placeholder="Search">
+            <div id="search-container">
+                <input type="text" placeholder="Search" id="search-bar">
+                <img src="./public/assets/searchicon.svg" alt="" id="search-button">
+            </div>
         </div>
     </nav>
+    <script src="./public/js/searchbutton.js"></script>
 </header>

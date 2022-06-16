@@ -44,11 +44,6 @@
                 <input type="password" name="password" class="form-control" placeholder="Password">
                 <label for="floatingPassword">Contraseña</label>
             </div>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Recuerdame
-                </label>
-            </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
             <p> ¿No tienes cuenta? <a href='./sign-in.php?register'>Crear cuenta</a></p>
         </form>

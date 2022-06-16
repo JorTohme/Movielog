@@ -19,11 +19,11 @@
             <?php
             while ($row = mysqli_fetch_row($result)) {
                     echo "
-                    <div class='col-lg-4 item'>
+                    <div class='col-lg-3 item'>
                         <div class='item-container'>
-                            <img class='movieposter' src='./public/assets/merch/$row[4]' height='300px' alt=''>
-                            <p class='price'>$ $row[3]</p>
-                            <p class='name'>$row[2]</p>
+                            <img class='movieposter' src='./public/assets/merch/$row[3]' height='300px' alt=''>
+                            <p class='price'>$ $row[2]</p>
+                            <p class='name'>$row[1]</p>
                             <button>Ir a comprar</button>
                         </div>
                     </div> ";
