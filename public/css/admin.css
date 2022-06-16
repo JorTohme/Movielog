@@ -13,6 +13,11 @@
     src: url('../assets/fonts/VisbyHeavy-Italic.otf');
 }
 
+@font-face { 
+    font-family: 'Coves-Light';
+    src: url('../assets/fonts/Coves-Light.otf');
+}
+
 body {
     background-image: url("../assets/background-admin.png");
     background-repeat: no-repeat;
@@ -116,24 +121,54 @@ h2 {
     transform: scaleX(1);
 }
 
-#menu input {
+#menu #search-container {
+    margin-left: 4rem;
+    margin-top: 0.5rem;
+  }
+  
+  #menu input {
     border-radius: 16.5px;
     width: 120px;
     height: 20px;
-    margin-left: 4rem;
-    margin-top: 0.5rem;
     background-color: rgba(255, 255, 255, 0.686);
-    text-align: right;
     text-overflow: ellipsis;
     color: rgb(87, 84, 84);
-    background-image: url(../assets/searchicon.svg);
     background-repeat: no-repeat;
     background-position: 5px;
     background-size: 18px;
+  }
+  
+  #menu #search-button {
+    padding-top: 6px;
+    margin-left: 3px;
+    width: 26px;
+    cursor: pointer;
+  }
+  
+
+.buttons-container {
+    margin-top: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-::-webkit-scrollbar {
-    display: none;
+.button {
+    height: 50px;
+    width: 110px;
+    margin-right: 20px;
+    border: 2px solid rgb(46, 46, 62);
+    background-color: rgb(85, 127, 189);
+    color: white;
+    font-family: Coves-Light, sans-serif;
+    font-size: large;
+    border-radius: 8px;
+}
+
+.button:hover {
+    background-color: rgb(106, 155, 230);
+    cursor: pointer;
 }
 
 main {
@@ -145,8 +180,8 @@ main {
 }
 
 form {
-    width: 65rem;
-    height: 95vh;
+    width: 120vh;
+    height: 87vh;
     border: 3px solid grey;
     border-radius: 13px;
     background-color: rgba(255, 255, 255, 0.718);
@@ -181,6 +216,19 @@ h3 {
     color: rgb(255, 255, 255);
     font-family: Geomanist-Regular, sans-serif;
     letter-spacing: 0.9px;
+}
+
+#submit-button-marginnone {
+    width: 140px;
+    height: 30px;
+    border: none;
+    background-color: rgb(66, 124, 209);
+    border-radius: 3px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-family: Geomanist-Regular, sans-serif;
+    letter-spacing: 0.9px;
+    margin: none;
 }
 
 .container {
@@ -241,6 +289,46 @@ h3 {
 
 [type='submit'] {
     margin-top: 50px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#add-merch,
+#edit-movie,
+#edit-merch {
+    display: none;
+}
+
+select {
+    margin-left: 50px;
+}
+
+.movie-selector {
+    display: block;
+}
+
+.product-merch {
+    margin: 50px auto auto auto;
+    border-bottom: 1px dotted black;
+    width: 300px;
+    height: 100px;
+}
+
+.submit-button {
+    display: block;
+    height: 30px;
+    position: relative;
+    bottom: 60px;
+}
+
+form#add-merch{
+    height: 400px;
+}
+
+.select-merch{
+    margin-bottom: 20px;
 }
 
 @media (max-width: 800px) {

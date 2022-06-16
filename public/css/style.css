@@ -112,20 +112,28 @@ h1 {
   transform: scaleX(1);
 }
 
+#menu #search-container {
+  margin-left: 4rem;
+  margin-top: 0.5rem;
+}
+
 #menu input {
   border-radius: 16.5px;
   width: 120px;
   height: 20px;
-  margin-left: 4rem;
-  margin-top: 0.5rem;
   background-color: rgba(255, 255, 255, 0.686);
-  text-align: right;
   text-overflow: ellipsis;
   color: rgb(87, 84, 84);
-  background-image: url(../assets/searchicon.svg);
   background-repeat: no-repeat;
   background-position: 5px;
   background-size: 18px;
+}
+
+#menu #search-button {
+  padding-top: 6px;
+  margin-left: 3px;
+  width: 26px;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -148,8 +156,11 @@ h1 {
 
   #menu input {
     width: 80px;
+  }
+
+  #menu #search-container { 
     position: absolute;
-    top: 110px;
-    right: 130px;
+    top: 95px;
+    right: 50px;
   }
 }

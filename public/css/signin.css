@@ -52,6 +52,13 @@ form {
   border-top-right-radius: 0;
 }
 
+#password-alert {
+  visibility: hidden;
+  font-size: small;
+  font-weight: bold;
+  color: rgb(177, 27, 27);
+}
+
 @media (max-width: 1500px) {
   h1 {
     color: #4a4a4a;

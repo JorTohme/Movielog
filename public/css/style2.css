@@ -10,6 +10,7 @@
 
 #maincontent {
   padding-top: 70px;
+  height: 1010px;
 }
 
 h2 {
@@ -57,6 +58,40 @@ h2 {
   height: 470px;
 }
 
+.button-container {
+  width: 140px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin: none;
+  border: none;
+  overflow: visible;
+}
+
+.page-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: none;
+  border: none;
+}
+
+.page-number{
+  margin-left: 5px;
+  margin-right: 10px;
+  font-family: Geomanist-Medium, sans-serif;
+}
+
+.page-button button{
+  height: 34px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(106, 155, 230);
+  border-radius: 3px;
+}
+
 footer {
   position: absolute;
   font-family: 'Coves-Light';
@@ -97,7 +132,16 @@ footer .info a:visited {
   color: white;
 }
 
+@media (max-width: 1000px) {
+  #maincontent {
+    height: auto;
+  }
+}
+
 @media (max-width: 800px) {
+  #maincontent {
+    height: auto;
+  }
   .movie p {
     text-align: center;
     font-family: 'Geomanist-Medium';
@@ -106,5 +150,8 @@ footer .info a:visited {
   .shopping-cart {
     top: 10em;
     right: 2em;
+  }
+  .page-number{
+    color:white;
   }
 }
