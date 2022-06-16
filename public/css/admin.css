@@ -180,8 +180,8 @@ main {
 }
 
 form {
-    width: 120vh;
-    height: 87vh;
+    width: 1000px;
+    height: 750px;
     border: 3px solid grey;
     border-radius: 13px;
     background-color: rgba(255, 255, 255, 0.718);
@@ -324,6 +324,14 @@ select {
 }
 
 form#add-merch{
+    height: 400px;
+}
+
+form#edit-merch{
+    height: 350px;
+}
+
+form#edit-movie{
     height: 400px;
 }
 
