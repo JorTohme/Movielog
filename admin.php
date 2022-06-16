@@ -22,10 +22,18 @@
 </head>
 
 <body>
-    <?php include './public/header.php'?>
-    <h2>AÑADIR PELÍCULA</h2>
+    <?php include_once './public/header.php'; include_once('./private/db.php');?>
+    <div class="buttons-container">
+        <button class="button" id="new-movie-button">Añadir Película</button>
+        <button class="button" id="add-merch-button">Añadir Merch</button>
+        <button class="button" id="edit-movie-button">Eliminar Película</button>
+        <button class="button" id="edit-merch-button">Editar Merch</button>
+    </div>
+    <h2 id="h2-title">AÑADIR PELÍCULA</h2>
+    <?php if (isset($_GET['m'])) { echo "<p id='m' style='font-family: sans-serif;color:white; text-align:center'>Añadido correctamente</p>";}?>
+    <?php if (isset($_GET['e'])) { echo "<p id='e' style='font-family: sans-serif;color:red; text-align:center'>Hubo un error</p>";}?>
     <main>
-        <form action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
+        <form id="new-movie" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
             <h3 class="h3">Título</h3>
             <div class="title-container">
                 <input name="movietitle" id="titleInput" required>
@@ -81,9 +89,88 @@
                     </div>
                 </div>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit-button">SUBIR</button>
+            <button type="submit" id="submit-button">SUBIR</button>
+        </form>
+
+        <form id="add-merch" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data"> 
+            <h3 class="h3">Añadir producto</h3>
+            <div class="movie-selector">
+                <label for="movie-select">Seleccionar película</label>
+                <select name="movie-select" id="movie-select" required>
+                    <?php
+                        $movies = getMovies($db);
+                        while ($row = mysqli_fetch_row($movies)) {
+                        echo "<option value='$row[0]'>$row[0]</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="product-merch">
+                <p>Foto del producto</p>
+                <input type="file" name="merch-picture" required>
+            </div>
+            <div class="product-attributes-container">
+                <div class="product-attributes">
+                    <label for="merch-name">Nombre</label>
+                    <input name="merch-name" id="merch-name" class="product-input" required>
+                </div>
+                <div class="product-attributes">
+                    <label for="merch-price">Precio</label>
+                    <input name="merch-price" id="merch-price" class="product-input" required>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit" id="submit-button">SUBIR</button>
+            </div>
+        </form>
+
+        <form id="edit-movie" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
+            <h3 class="h3">Eliminar película</h3>
+            <select name="movie-delete" id="movie-select" required>
+                <?php
+                    $movies = getMovies($db);
+                    while ($row = mysqli_fetch_row($movies)) {
+                        echo "<option value='$row[0]'>$row[0]</option>";
+                    }
+                ?>
+            </select>
+            <button type="submit" id="submit-button-marginnone">Eliminar</button>
+            <h4 class="h3">O eliminar un producto:</h4>
+            <select name="product-delete" id="movie-select" required>
+                <option value='none'>Ninguno</option>
+                <?php
+                    $product = getProducts($db);
+                    while ($row1 = mysqli_fetch_row($product)) {
+                        echo "<option value='$row1[1]'>$row1[1]</option>";
+                    }
+                ?>
+            </select>
+            <p>Elegir "Ninguno" en productos eliminará la película seleccionada </br> Elegir un producto borrará solo ese producto</p>
+            <button type="submit" id="submit-button">Eliminar</button>
+        </form>
+
+        <form id="edit-merch" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
+            <h3 class="h3">Editar Merch</h3>
+            <div class="select-merch">
+                <p>Editar precio de:</p>
+                <select name="product" id="movie-select" required>
+                    <option value='none'>Ninguno</option>
+                    <?php
+                        $product = getProducts($db);
+                        while ($row1 = mysqli_fetch_row($product)) {
+                            echo "<option value='$row1[1]'>$row1[1]</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="new-price">
+                <label for="merch-name">Nuevo precio:</label>
+                <input name="merch-newprice" id="merch-name" class="product-input" required>
+            </div>
+            <button type="submit" id="submit-button">Editar</button>
         </form>
     </main>
+    <script src="./public/js/admin.js"></script>
 </body>
 
 </html>
