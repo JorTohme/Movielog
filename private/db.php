@@ -21,11 +21,43 @@ function getMovies($db)
     return mysqli_query($db, $request);
 }
 
+function searchMovies($db, $search)
+{
+    $request = "SELECT * FROM movies WHERE title like '%".$search."%'";
+    return mysqli_query($db, $request);
+}
+
+function getProducts($db) {
+    $request = "SELECT * FROM merch";
+    return mysqli_query($db, $request);
+}
+
+function getMovieProducts($db, $movie) {
+    $request = "SELECT * FROM merch WHERE movie='$movie'";   
+    return mysqli_query($db, $request);
+}
+
 function validateLogIn($db)
 {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $request = "SELECT * FROM users WHERE email='$email' AND pass='$password'";
+    $response = mysqli_query($db, $request);
+
+    if (mysqli_num_rows($response)) {
+        mysqli_close($db);
+        session_start();
+        $_SESSION['user'] = mysqli_fetch_assoc($response)['username'];
+        header("location:../index.php");
+    } else {
+        mysqli_close($db);
+        header("location:../sign-in.php?sign-into-account&error");
+    }
+}
+
+function validateLogIn2($db, $email, $password)
+{
     $request = "SELECT * FROM users WHERE email='$email' AND pass='$password'";
     $response = mysqli_query($db, $request);
 
@@ -47,6 +79,13 @@ function createUser($db)
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
 
+    if (!($password === $password2)) {
+        header("location:../sign-in.php?register&emailerror");
+    } 
+
+    if ($name === 'ADMIN') {
+        header("location:../sign-in.php?register&emailerror");
+    }
     // Inserts the new account into the database.
     $request = "INSERT INTO users (email, pass, username) VALUES ('$email', '$password', '$name');";
 
@@ -59,8 +98,14 @@ function createUser($db)
         header("location:../sign-in.php?register&emailerror");
     }
 
-    // If there's no errors, closes the database connection and
-    // redirects to a succes page.
-    mysqli_close($db);
-    header("location:../sign-in.php?register&success");
+    // If there's no errors, closes the database connection.
+    validateLogIn2($db, $email, $password);
+}
+
+function DeletePhotos($fileToDelete, $from) {
+    unlink('../public/assets/'.$from.'/'.$fileToDelete);
+}
+
+function DeletePhotosMerch($fileToDelete) {
+    unlink('../public/assets/merch/'.$fileToDelete.'.jpg');
 }
