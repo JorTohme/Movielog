@@ -65,7 +65,7 @@
                     echo "<p id='error' style='color: red; font-weight: 500;'> Ese email ya está registrado, <a href='./sign-in.php?sign-into-account'>¿Quieres iniciar sesión?</a> </p>";
                 }
             ?>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" id='sign-in-button'>Ingresar</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id='sign-in-button'>Registrarse</button>
         <p> ¿Ya tienes cuenta? <a href='./sign-in.php?sign-into-account'>Iniciar sesión</a></p>
         </form>
     </main>

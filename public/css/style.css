@@ -13,6 +13,16 @@
   src: url('../assets/fonts/VisbyHeavy-Italic.otf');
 }
 
+@font-face { 
+  font-family: 'Geomanist-Medium';
+  src: url('../assets/fonts/Geomanist-Medium.ttf');
+}
+
+@font-face { 
+  font-family: 'Coves-Light';
+  src: url('../assets/fonts/Coves-Light.otf');
+}
+
 body {
   background-image: url("../assets/background.svg");
   background-repeat: no-repeat;
@@ -25,121 +35,139 @@ body {
   padding-bottom: 10em;
 }
 
-nav {
-  display: flex;
-  padding: 0.5rem 0.4rem;
-  max-width: 80rem;
-  margin: auto;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: stretch;
+#maincontent {
+  padding-top: 70px;
+  height: 1010px;
 }
 
-nav * {
-  display: inline-flex;
+h2 {
+  padding-top: 40px;
+  width: 200px;
   margin: auto;
-}
-
-h1 {
-  font-family: 'Geomanist-Black', sans-serif;
   color: white;
-  font-size: 25pt;
-  margin-left: 1.4rem;
-
-  /* Impide la selección del texto */
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-          supported by Chrome, Edge, Opera and Firefox */
+  font-family: 'Visby-Heavy-Italic';
+  text-decoration: underline;
+  text-decoration-color: #b5561c;
+  transform: scale(1.4);
 }
 
-#logo {
-  width: 210px;
-  margin: auto;
+.movie .movieposter {
+  /* Centrar la imagen */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Tamaño del poster */
+  width: 232px;
+  height: 365px;
+  border-radius: 15px;
 }
 
-#logo img {
-  width: 45px;
+.movie p {
+  text-align: center;
+  font-family: 'Geomanist-Medium';
 }
 
-#menu {
-  display: inline-flex;
-  color: white;
-  padding-top: 0.5rem;
-}
-
-#menu a {
-  margin-left: 0.7rem;
-  font-family: 'Geomanist-Regular', sans-serif;
+.movie a {
+  color: #595757;
   text-decoration: none;
-
-  position: relative;
 }
 
-#menu a:link {
+.movie a:visited {
+  color: #595757;
+}
+
+.movie a:hover * {
+  font-size: large;
+  transform: scale(1.02);
+}
+
+.movie {
+  height: 470px;
+}
+
+.button-container {
+  width: 140px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin: none;
+  border: none;
+  overflow: visible;
+}
+
+.page-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: none;
+  border: none;
+}
+
+.page-number{
+  margin-left: 5px;
+  margin-right: 10px;
+  font-family: Geomanist-Medium, sans-serif;
+}
+
+.page-button button{
+  height: 34px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
   color: white;
+  background-color: rgb(106, 155, 230);
+  border-radius: 3px;
 }
 
-#menu a:visited {
-  color: white;
-}
-
-#menu a::before {
-  content: "";
+footer {
   position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 4px;
-  background-color: white;
+  font-family: 'Coves-Light';
   bottom: 0;
   left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
+
+  background-color: rgb(41, 41, 41);
+  color: rgb(161, 161, 161);
+
+  width: 99%;
+  display: flex;
+
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-#menu a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
+footer #name {
+  font-size: small;
+  letter-spacing: 1px;
+  margin-right: 2px;
 }
 
-#menu #search-container {
-  margin-left: 4rem;
-  margin-top: 0.5rem;
+footer #name span {
+  font-size: 1.1em;
+  letter-spacing: 2px;
 }
 
-#menu input {
-  border-radius: 16.5px;
-  width: 120px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.686);
-  text-overflow: ellipsis;
-  color: rgb(87, 84, 84);
-  background-repeat: no-repeat;
-  background-position: 5px;
-  background-size: 18px;
+footer .info a {
+  text-decoration: underline;
+  letter-spacing: 1px
 }
 
-#menu #search-button {
-  padding-top: 6px;
-  margin-left: 3px;
-  width: 26px;
-  cursor: pointer;
+footer .info a:link {
+  color: rgb(188, 188, 188);
+}
+
+footer .info a:visited {
+  color: white;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
+@media (max-width: 1000px) {
+  #maincontent {
+    height: auto;
+  }
+}
 
 @media (max-width: 800px) {
   body {
@@ -150,17 +178,19 @@ h1 {
     background-color: rgb(72, 120, 148);
   }
 
-  nav {
-    display: block;
+  #maincontent {
+    height: auto;
   }
-
-  #menu input {
-    width: 80px;
+  .movie p {
+    text-align: center;
+    font-family: 'Geomanist-Medium';
+    color: white;
   }
-
-  #menu #search-container { 
-    position: absolute;
-    top: 95px;
-    right: 50px;
+  .shopping-cart {
+    top: 10em;
+    right: 2em;
+  }
+  .page-number{
+    color:white;
   }
 }

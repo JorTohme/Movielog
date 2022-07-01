@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./public/assets/logo.svg" rel="icon">
+    <link rel="stylesheet" href="./public/css/heading.css">
     <link href="./public/css/style.css" rel="stylesheet">
-    <link href="./public/css/style2.css" rel="stylesheet">
     <link href="./public/css/bootstrap-grid.min.css" rel="stylesheet">
     <script src="./public/js/pages.js" defer></script>
     <title>Movielog</title>
-    <?php include('./private/db.php') ; session_start(); ?>
+    <?php include('./private/db.php'); checkRememberme(); ?>
 </head>
 
 <body>

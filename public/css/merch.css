@@ -13,134 +13,177 @@
   src: url('../assets/fonts/VisbyHeavy-Italic.otf');
 }
 
+@font-face {
+  font-family: 'Coves-Light';
+  src: url('../assets/fonts/Coves-Light.otf');
+}
+
+@font-face {
+  font-family: 'Geomanist-Medium';
+  src: url('../assets/fonts/Geomanist-Medium.ttf');
+}
+
 body {
   background-image: url("../assets/background-merch.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
-
-  background-color: rgb(93, 115, 151);
+  background-size: cover;
+  background-color: rgb(113, 129, 152);
 
   position: relative;
   min-height: 100vh;
   padding-bottom: 10em;
 }
 
-nav {
+main {
+  margin-top: 70px;
+}
+
+.item {
   display: flex;
-  padding: 0.5rem 0.4rem;
-  max-width: 80rem;
-  margin: auto;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: stretch;
+  height: 300px;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-nav * {
-  display: inline-flex;
-  margin: auto;
+.item-container {
+  height: 329px;
+  width: 220px;
+  background-color: rgb(220, 225, 230);
+  border-radius: 5px;
+  box-shadow: -3px 0 10px rgb(0, 0, 0);
 }
 
-h1 {
-  font-family: 'Geomanist-Black', sans-serif;
-  color: white;
-  font-size: 25pt;
-  margin-left: 1.4rem;
-
-  /* Impide la selección del texto */
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-            supported by Chrome, Edge, Opera and Firefox */
+.item-container:hover {
+  box-shadow: -3px 0 20px rgb(0, 0, 0);
 }
 
-#logo {
+.item img {
+  object-fit: cover;
+  width: 200px;
+  height: 180px;
+  margin-top: 3px;
+  border: 2px dashed rgb(0, 0, 0);
+  border-radius: 7px;
+}
+
+.item .name {
+  font-family: Geomanist-Regular, sans-serif;
+  margin: 7px 0 6px 0;
+}
+
+.item .price {
+  font-family: Geomanist-Regular, sans-serif;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-size: 1.9rem;
+}
+
+.item button {
+  width: 140px;
+  height: 30px;
+  border: none;
+  background-color: rgb(66, 124, 209);
+  border-radius: 3px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-family: Geomanist-Regular, sans-serif;
+  letter-spacing: 0.9px;
+}
+
+.item button:hover {
+  background-color: rgb(94, 142, 213);
+}
+
+.fav-container {
+  display: flex;
+  margin-top: 7px;
+  justify-content: right;
   width: 210px;
-  margin: auto;
 }
 
-#logo img {
-  width: 45px;
-}
-
-#menu {
-  display: inline-flex;
-  color: white;
-  padding-top: 0.5rem;
-}
-
-#menu a {
-  margin-left: 0.7rem;
-  font-family: 'Geomanist-Regular', sans-serif;
-  text-decoration: none;
-
-  position: relative;
-}
-
-#menu a:link {
-  color: white;
-}
-
-#menu a:visited {
-  color: white;
-}
-
-#menu a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 4px;
-  background-color: white;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-#menu a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-#menu #search-container {
-  margin-left: 4rem;
-  margin-top: 0.5rem;
-}
-
-#menu input {
-  border-radius: 16.5px;
-  width: 120px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.686);
-  text-overflow: ellipsis;
-  color: rgb(87, 84, 84);
+.fav{
+  background-image: url('../assets/heart.png');
   background-repeat: no-repeat;
-  background-position: 5px;
-  background-size: 18px;
-}
-
-#menu #search-button {
-  padding-top: 6px;
-  margin-left: 3px;
-  width: 26px;
+  background-size: contain;
+  width: 27px;
+  height: 27px;
   cursor: pointer;
 }
 
+.faved {
+  background-image: url('../assets/heartfull.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+/* Animaciones */
+
+.fav:hover{
+  background-image: url('../assets/heartfull.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+
+.faved:hover {
+  background-image: url('../assets/heart.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  font-family: 'Coves-Light';
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background-color: rgb(41, 41, 41);
+  color: rgb(161, 161, 161);
+
+  width: 99%;
+  display: flex;
+
+  padding-left: 1em;
+}
+
+footer #name {
+  font-size: small;
+  letter-spacing: 1px;
+  margin-right: 2px;
+}
+
+footer #name span {
+  font-size: 1.1em;
+  letter-spacing: 2px;
+}
+
+footer .info a {
+  text-decoration: underline;
+  letter-spacing: 1px
+}
+
+footer .info a:link {
+  color: rgb(188, 188, 188);
+}
+
+footer .info a:visited {
+  color: white;
+}
 
 ::-webkit-scrollbar {
   display: none;
 }
-
 
 @media (max-width: 800px) {
   body {
@@ -148,16 +191,5 @@ h1 {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-  }
-
-  nav {
-    display: block;
-  }
-
-  #menu input {
-    width: 80px;
-    position: absolute;
-    top: 110px;
-    right: 130px;
   }
 }

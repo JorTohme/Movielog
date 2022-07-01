@@ -1,6 +1,7 @@
 <?php
-include('./private/db.php');
-function error404() {
+include './private/db.php';
+function error404()
+{
     echo "
     <!DOCTYPE html>
     <html lang='es'>
@@ -22,18 +23,19 @@ function error404() {
 }
 
 // Checks if there's a $_GET movie variable.
-if (!isset($_GET['movie'])) { error404(); } 
+if (!isset($_GET['movie'])) {error404();}
 
 // Saves the movie's title.
 $movie = $_GET['movie'];
 // Searchs for that movie's merch.
 $request = "SELECT * FROM merch WHERE movie IN ('$movie')";
 $result = mysqli_query($db, $request);
-// If there's a response, open the merch view, if there's not, 
+
+$likedproducts = [];
+// If there's a response, open the merch view, if there's not,
 // send an error message.
 if (mysqli_num_rows($result)) {
-    mysqli_close($db);
-    include('./public/merchview.php');
+    include './public/merchview.php';
 } else {
     error404();
 }

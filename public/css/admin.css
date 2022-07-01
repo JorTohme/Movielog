@@ -18,6 +18,14 @@
     src: url('../assets/fonts/Coves-Light.otf');
 }
 
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-image: url("../assets/background-admin.png");
     background-repeat: no-repeat;
@@ -27,21 +35,6 @@ body {
 
     min-height: 100vh;
     padding-bottom: 10em;
-}
-
-nav {
-    display: flex;
-    padding: 0.5rem 0.4rem;
-    max-width: 80rem;
-    margin: auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: stretch;
-}
-
-nav * {
-    display: inline-flex;
-    margin: auto;
 }
 
 h1,
@@ -71,80 +64,6 @@ h3 {
 h2 {
     text-align: center;
 }
-
-#logo {
-    width: 210px;
-    margin: auto;
-}
-
-#logo img {
-    width: 45px;
-}
-
-#menu {
-    display: inline-flex;
-    color: white;
-    padding-top: 0.5rem;
-}
-
-#menu a {
-    margin-left: 0.7rem;
-    font-family: 'Geomanist-Regular', sans-serif;
-    text-decoration: none;
-    position: relative;
-}
-
-#menu a:link {
-    color: white;
-}
-
-#menu a:visited {
-    color: white;
-}
-
-#menu a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 4px;
-    background-color: white;
-    bottom: 0;
-    left: 0;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-#menu a:hover::before {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-#menu #search-container {
-    margin-left: 4rem;
-    margin-top: 0.5rem;
-  }
-  
-  #menu input {
-    border-radius: 16.5px;
-    width: 120px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.686);
-    text-overflow: ellipsis;
-    color: rgb(87, 84, 84);
-    background-repeat: no-repeat;
-    background-position: 5px;
-    background-size: 18px;
-  }
-  
-  #menu #search-button {
-    padding-top: 6px;
-    margin-left: 3px;
-    width: 26px;
-    cursor: pointer;
-  }
-  
 
 .buttons-container {
     margin-top: 50px;
@@ -180,12 +99,29 @@ main {
 }
 
 form {
-    width: 120vh;
-    height: 87vh;
+    width: 50vw;
+    height: auto;
     border: 3px solid grey;
     border-radius: 13px;
     background-color: rgba(255, 255, 255, 0.718);
     text-align: center;
+}
+
+#edit-movie {
+    width: 50vw;
+    height: auto;
+    border: 3px solid grey;
+    border-radius: 13px;
+    background-color: rgba(255, 255, 255, 0.718);
+    text-align: center;
+}
+
+.form-no-decoration {
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 h3 {
@@ -198,7 +134,7 @@ h3 {
 #titleInput {
     border: none;
     border-radius: 8px;
-    width: 50rem;
+    width: 90%;
     height: 40px;
     font-size: large;
     font-family: 'Geomanist-Regular', sans-serif;
@@ -237,20 +173,16 @@ h3 {
 }
 
 .container-element-1 {
-    height: 200px;
     display: block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    width: 45%;
 }
 
-.container-element-1 * {
-    margin-bottom: 40px;
-    display: flex;
+.container-element-1 input {
+    margin-top: 40px;
 }
 
 .container-element-2 {
-    width: 400px;
+    width: 45%;
 }
 
 .container-element-2 p{
@@ -277,8 +209,19 @@ h3 {
     display: inline-flex;
 }
 
+.product-attributes-number {
+    display: block;
+    width: 150px;
+    height: 100px;
+    padding-top: 20px;
+}
+
 .product-input {
     width: 130px;
+}
+
+.product-input-number {
+    width: 75px;
 }
 
 [type='file'] {
@@ -288,11 +231,8 @@ h3 {
 }
 
 [type='submit'] {
-    margin-top: 50px;
-}
-
-::-webkit-scrollbar {
-    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #add-merch,
@@ -338,12 +278,21 @@ form#add-merch{
         background-attachment: scroll;
         background-size: cover;
     }
+}
 
-    nav {
+@media (max-width: 1200px) {
+    .container {
         display: block;
+        justify-content: space-around;
     }
-
-    #menu input {
-        width: 80px;
+    form {
+        height: auto;
+        width: auto;
+    }
+    .container-element-1 {
+        width: 100%;
+    }
+    .container-element-2 {
+        width: 100%;
     }
 }

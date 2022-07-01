@@ -7,21 +7,6 @@
     <link href="./public/css/bootstrap.min.css" rel="stylesheet">
     <link href="./public/assets/logo.svg" rel="icon">
     <link href="./public/css/signin.css" rel="stylesheet">
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-    </style>
     <title>Signin Movielog</title>
 </head>
 
@@ -43,6 +28,11 @@
             <div class="form-floating">
                 <input type="password" name="password" class="form-control" placeholder="Password">
                 <label for="floatingPassword">Contraseña</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me" name="remember-me"> Recuérdame
+                </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
             <p> ¿No tienes cuenta? <a href='./sign-in.php?register'>Crear cuenta</a></p>

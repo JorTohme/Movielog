@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./public/assets/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./public/css/heading.css">
     <title>Admin</title>
+    <link rel="stylesheet" href="./public/css/admin.css">
+</head>
+
+<body>
+    <?php include_once './public/header.php'; include_once('./private/db.php');?>
     <?php
     // Allows the page to be visualized only for admins.
-    session_start();
     if (!isset($_SESSION['user'])) {
         header('Location: ./index.php');
         die();
@@ -18,11 +23,6 @@
         die();
     }
     ?>
-    <link rel="stylesheet" href="./public/css/admin.css">
-</head>
-
-<body>
-    <?php include_once './public/header.php'; include_once('./private/db.php');?>
     <div class="buttons-container">
         <button class="button" id="new-movie-button">Añadir Película</button>
         <button class="button" id="add-merch-button">Añadir Merch</button>
@@ -53,9 +53,10 @@
                                 <label for="merch1-name">Nombre</label>
                                 <input name="merch1-name" id="merch1-name" class="product-input" required>
                             </div>
-                            <div class="product-attributes">
+                            <div class="product-attributes-number">
                                 <label for="merch1-price">Precio</label>
-                                <input name="merch1-price" id="merch1-price" class="product-input" required>
+                                <input name="merch1-price" id="merch1-price" class="product-input-number" type="number"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -67,9 +68,10 @@
                                 <label for="merch2-name">Nombre</label>
                                 <input name="merch2-name" id="merch2-name" class="product-input" required>
                             </div>
-                            <div class="product-attributes">
+                            <div class="product-attributes-number">
                                 <label for="merch2-price">Precio</label>
-                                <input name="merch2-price" id="merch2-price" class="product-input" required>
+                                <input name="merch2-price" id="merch2-price" class="product-input-number" type="number"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -81,9 +83,10 @@
                                 <label for="merch3-name">Nombre</label>
                                 <input name="merch3-name" id="merch2-name" class="product-input" required>
                             </div>
-                            <div class="product-attributes">
+                            <div class="product-attributes-number">
                                 <label for="merch3-price">Precio</label>
-                                <input name="merch3-price" id="merch2-price" class="product-input" required>
+                                <input name="merch3-price" id="merch2-price" class="product-input-number" type="number"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -92,7 +95,7 @@
             <button type="submit" id="submit-button">SUBIR</button>
         </form>
 
-        <form id="add-merch" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data"> 
+        <form id="add-merch" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
             <h3 class="h3">Añadir producto</h3>
             <div class="movie-selector">
                 <label for="movie-select">Seleccionar película</label>
@@ -114,9 +117,9 @@
                     <label for="merch-name">Nombre</label>
                     <input name="merch-name" id="merch-name" class="product-input" required>
                 </div>
-                <div class="product-attributes">
+                <div class="product-attributes-number">
                     <label for="merch-price">Precio</label>
-                    <input name="merch-price" id="merch-price" class="product-input" required>
+                    <input name="merch-price" id="merch-price" class="product-input-number" type="number" required>
                 </div>
             </div>
             <div class="submit-button">
@@ -124,30 +127,32 @@
             </div>
         </form>
 
-        <form id="edit-movie" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
-            <h3 class="h3">Eliminar película</h3>
-            <select name="movie-delete" id="movie-select" required>
-                <?php
-                    $movies = getMovies($db);
-                    while ($row = mysqli_fetch_row($movies)) {
-                        echo "<option value='$row[0]'>$row[0]</option>";
-                    }
-                ?>
-            </select>
-            <button type="submit" id="submit-button-marginnone">Eliminar</button>
-            <h4 class="h3">O eliminar un producto:</h4>
-            <select name="product-delete" id="movie-select" required>
-                <option value='none'>Ninguno</option>
-                <?php
-                    $product = getProducts($db);
-                    while ($row1 = mysqli_fetch_row($product)) {
-                        echo "<option value='$row1[1]'>$row1[1]</option>";
-                    }
-                ?>
-            </select>
-            <p>Elegir "Ninguno" en productos eliminará la película seleccionada </br> Elegir un producto borrará solo ese producto</p>
-            <button type="submit" id="submit-button">Eliminar</button>
-        </form>
+        <div id="edit-movie">
+            <form action="./private/admin-movie.php" method="POST" enctype="multipart/form-data" class="form-no-decoration">
+                <h3 class="h3">Eliminar película</h3>
+                <select name="movie-delete" id="movie-select" required>
+                    <?php
+                        $movies = getMovies($db);
+                        while ($row = mysqli_fetch_row($movies)) {
+                            echo "<option value='$row[0]'>$row[0]</option>";
+                        }
+                    ?>
+                </select>
+                <button type="submit" id="submit-button-marginnone">Eliminar</button>
+            </form>
+            <form action="./private/admin-movie.php" method="POST" enctype="multipart/form-data" class="form-no-decoration">
+                <h4 class="h3">O eliminar un producto:</h4>
+                <select name="product-delete" id="movie-select" required>
+                    <?php
+                        $product = getProducts($db);
+                        while ($row1 = mysqli_fetch_row($product)) {
+                            echo "<option value='$row1[1]'>$row1[1]</option>";
+                        }
+                    ?>
+                </select>
+                <button type="submit" id="submit-button">Eliminar</button>
+            </form>
+        </div>
 
         <form id="edit-merch" action="./private/admin-movie.php" method="POST" enctype="multipart/form-data">
             <h3 class="h3">Editar Merch</h3>
@@ -165,7 +170,7 @@
             </div>
             <div class="new-price">
                 <label for="merch-name">Nuevo precio:</label>
-                <input name="merch-newprice" id="merch-name" class="product-input" required>
+                <input name="merch-newprice" id="merch-name" class="product-input-number" type="number" required>
             </div>
             <button type="submit" id="submit-button">Editar</button>
         </form>
