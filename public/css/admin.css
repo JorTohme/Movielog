@@ -267,6 +267,14 @@ form#add-merch{
     height: 400px;
 }
 
+form#edit-merch{
+    height: 350px;
+}
+
+form#edit-movie{
+    height: 400px;
+}
+
 .select-merch{
     margin-bottom: 20px;
 }
