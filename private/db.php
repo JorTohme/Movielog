@@ -41,35 +41,52 @@ function validateLogIn($db)
 {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    $request = "SELECT * FROM users WHERE email='$email' AND pass='$password'";
+    
+    $request = "SELECT * FROM users WHERE email='$email'";
     $response = mysqli_query($db, $request);
 
     if (mysqli_num_rows($response)) {
-        mysqli_close($db);
-        session_start();
-        $_SESSION['user'] = mysqli_fetch_assoc($response)['username'];
-        header("location:../index.php");
+        $response = mysqli_fetch_assoc($response);
+        if (password_verify($password, $response['pass'])) {
+            mysqli_close($db);
+            session_start();
+            if (isset($_POST['remember-me']) && $_POST['remember-me'] == "remember-me") {
+                setcookie("remember-user", $response['username'] , time() + (86400 * 30), "/");
+            }
+            $_SESSION['user'] = $response['username'];
+            header("location:../index.php");
+        } else  {
+            mysqli_close($db);
+            header("location:../sign-in.php?sign-into-account&error");
+        }   
     } else {
         mysqli_close($db);
         header("location:../sign-in.php?sign-into-account&error");
     }
+    
 }
 
 function validateLogIn2($db, $email, $password)
 {
-    $request = "SELECT * FROM users WHERE email='$email' AND pass='$password'";
+    $request = "SELECT * FROM users WHERE email='$email'";
     $response = mysqli_query($db, $request);
 
     if (mysqli_num_rows($response)) {
-        mysqli_close($db);
-        session_start();
-        $_SESSION['user'] = mysqli_fetch_assoc($response)['username'];
-        header("location:../index.php");
+        $response = mysqli_fetch_assoc($response);
+        if (password_verify($password, $response['pass'])) {
+            mysqli_close($db);
+            session_start();
+            $_SESSION['user'] = $response['username'];
+            header("location:../index.php");
+        } else  {
+            mysqli_close($db);
+            header("location:../sign-in.php?sign-into-account&error");
+        }
     } else {
         mysqli_close($db);
         header("location:../sign-in.php?sign-into-account&error");
     }
+    
 }
 
 function createUser($db)
@@ -87,7 +104,8 @@ function createUser($db)
         header("location:../sign-in.php?register&emailerror");
     }
     // Inserts the new account into the database.
-    $request = "INSERT INTO users (email, pass, username) VALUES ('$email', '$password', '$name');";
+    $password_hash= password_hash($password, PASSWORD_DEFAULT, array("cost"=>12));
+    $request = "INSERT INTO users (email, pass, username) VALUES ('$email', '$password_hash', '$name');";
 
     // Checks if the email was not already registered,
     // if so, sends an error message and reloads the page.
@@ -108,4 +126,10 @@ function DeletePhotos($fileToDelete, $from) {
 
 function DeletePhotosMerch($fileToDelete) {
     unlink('../public/assets/merch/'.$fileToDelete.'.jpg');
+}
+
+function checkRememberme() {
+    if(isset($_COOKIE['remember-user'])) {
+        $_SESSION['user'] = $_COOKIE['remember-user'];
+    }
 }

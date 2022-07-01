@@ -81,8 +81,8 @@ if (isset($_POST['merch1-name']) && isset($_POST['merch2-name'])
     }
 
     header('location:../admin.php?m');
-} else if (isset($_POST['movie-delete']) && isset($_POST['product-delete'])) {
-    if ($_POST['product-delete'] == 'none') {
+} else if (isset($_POST['movie-delete']) || isset($_POST['product-delete'])) {
+    if (isset($_POST['movie-delete'])) {
         $movie = $_POST['movie-delete'];
         $request = "DELETE FROM movies WHERE title='$movie'";
         try {
@@ -110,7 +110,7 @@ if (isset($_POST['merch1-name']) && isset($_POST['merch2-name'])
         }
 
         header('location:../admin.php?m');
-    } else {
+    } else if(isset($_POST['product-delete'])){
         $product = $_POST['product-delete'];
         $request = "DELETE FROM merch WHERE name='$product'";
 
