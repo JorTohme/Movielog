@@ -56,9 +56,26 @@
     </div>
     <div class="button-container">
         <div class="page-button">
-            <button id="backward"><</button>
+            <?php
+                if (isset($_GET['page']) && $_GET['page'] != 1) {
+                    echo "<button id='backward'><</button>";
+                }
+            ?>
                 <p class="page-number" id="page"><?php if(isset($_GET['page'])) {echo ($_GET['page']);} else {echo "1";} ?>
-            <button id="forward">></button>
+            <?php
+                $check = count($moviesArray) / 6;
+                $check = ceil($check);    
+                if (isset($_GET['page'])) {
+                    if ($_GET['page'] < $check) {
+                        echo "<button id='forward'>></button>";
+                    } 
+                } else {
+                    if (1 < $check) {
+                        echo "<button id='forward'>></button>";
+                    } 
+                }
+                  
+            ?>
         </div>
     </div>
 </body>

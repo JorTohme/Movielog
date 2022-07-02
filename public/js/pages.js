@@ -5,17 +5,22 @@ let buttonBackward = document.getElementById('backward');
 let index = page.innerHTML.indexOf(" ");
 let pageNumber = parseInt(page.innerHTML.substring(0, index));
 
-
-buttonForward.onclick = function () {
-    pageNumber = pageNumber + 1;
-    console.log(pageNumber)
-    location.href="http://localhost/index.php?page="+pageNumber;
-}
-
-
-if (pageNumber > 1) {
-    buttonBackward.onclick = function () {
-        pageNumber = pageNumber - 1;
+if (buttonForward) {
+    buttonForward.onclick = function () {
+        pageNumber = pageNumber + 1;
+        console.log(pageNumber)
         location.href="http://localhost/index.php?page="+pageNumber;
     }
 }
+
+
+if (buttonBackward) {
+    buttonBackward.onclick = function () {
+        console.log("holaa");
+        if (pageNumber > 1) {
+            pageNumber = pageNumber - 1;
+            location.href="http://localhost/index.php?page="+pageNumber;
+        }
+    }
+}
+
